@@ -11,16 +11,40 @@ public class switchturn : MonoBehaviour
     {
         if (camara1.isActiveAndEnabled)
         {
-            camara1.enabled = false;
-            camara2.enabled = true;
-            gamesitomm.playerr = 2;
+            if(!gamesitomm.Jugadita)
+            {
+                gamesitomm.jugadorcito1end = true;
+            }
+            if(!gamesitomm.jugadorcito2end)
+            {
+                camara1.enabled = false;
+                camara2.enabled = true;
+                gamesitomm.playerr = 2;
+            }
+            
         }
         else
         {
-            camara1.enabled = true;
-            camara2.enabled = false;
-            gamesitomm.playerr = 1;
+            if (!gamesitomm.Jugadita)
+            {
+                gamesitomm.jugadorcito2end = true;
+            }
+            if (!gamesitomm.jugadorcito1end)
+            {
+                camara1.enabled = true;
+                camara2.enabled = false;
+                gamesitomm.playerr = 1;
+                
+            }
+            
         }
-        gamesitomm.Jugadita = false;
+        if(!gamesitomm.jugadorcito2end || !gamesitomm.jugadorcito1end)
+        {
+            gamesitomm.Jugadita = false;
+        }
+        else
+        {
+            gamesitomm.Jugadita = true;
+        }
     }
 }

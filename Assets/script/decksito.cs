@@ -21,7 +21,8 @@ public class decksito : MonoBehaviour
    public GameObject[] PosClima = new GameObject[1];
    public GameObject[] PosClimaCarta = new GameObject[1];
    public gamemanager gamesitomm;
-   
+   public int playersito = 1;
+
    private void Start()
    {
     Barajear();
@@ -29,7 +30,7 @@ public class decksito : MonoBehaviour
     Mostrarcartas();
     Movercartas();
    }
-   private void Barajear()
+   public void Barajear()
    {
     for (int i = 0; i < Mazo.Length; i++){
         GameObject Carta = Mazo[i];
@@ -39,7 +40,7 @@ public class decksito : MonoBehaviour
     }
    }
 
-   private void Robarcarta(int cartacantidad){
+   public void Robarcarta(int cartacantidad){
     for (int i = 0; i < cartacantidad; i++){
         if (Mano[i] == null)
         {
@@ -50,7 +51,7 @@ public class decksito : MonoBehaviour
 
    }
 
-   private void Mostrarcartas(){
+   public void Mostrarcartas(){
     for (int i = 0; i < Mano.Length; i++){
         ManoInnie[i] = GameObject.Instantiate(Mano[i], PosicionI.transform.position,PosicionI.transform.rotation);
     }
@@ -64,7 +65,7 @@ public class decksito : MonoBehaviour
    }
 
    public void Invocar(GameObject cartitapop){
-    if(!gamesitomm.Jugadita){
+    if(!gamesitomm.Jugadita && playersito == gamesitomm.playerr){
             for (int i = 0; i < PosCaC.Length; i++){
         
         if (PosCaCCarta[i] == null && cartitapop.GetComponent<General_card>().posicion == "Cuerpo_a_cuerpo"){
