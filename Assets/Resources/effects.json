@@ -1,0 +1,19 @@
+[
+  {
+    "Name": "Damage",
+    "Parameters": {
+      "Amount": "Number"
+    },
+    "Action": "[{\"type\":\"forLoop\",\"iterator\":\"target\",\"collection\":{\"type\":\"identifier\",\"name\":\"targets\"},\"body\":[{\"type\":\"unknown\"},{\"type\":\"whileLoop\",\"condition\":{\"type\":\"binaryExpression\",\"left\":{\"type\":\"unknown\"},\"op\":\"<\",\"right\":{\"type\":\"functionCall\",\"name\":\"amount\",\"arguments\":[]}},\"body\":[{\"type\":\"functionCall\",\"name\":\"target.power\",\"arguments\":[]}]}]}]"
+  },
+  {
+    "Name": "Draw",
+    "Parameters": {},
+    "Action": "[{\"type\":\"unknown\"},{\"type\":\"functionCall\",\"name\":\"context.hand.add(topcard)\",\"arguments\":[]},{\"type\":\"functionCall\",\"name\":\"context.hand.shuffle()\",\"arguments\":[]}]"
+  },
+  {
+    "Name": "Return to Deck",
+    "Parameters": {},
+    "Action": "[{\"type\":\"forLoop\",\"iterator\":\"target\",\"collection\":{\"type\":\"identifier\",\"name\":\"targets\"},\"body\":[{\"type\":\"unknown\"},{\"type\":\"unknown\"},{\"type\":\"functionCall\",\"name\":\"deck.push(target)\",\"arguments\":[]},{\"type\":\"functionCall\",\"name\":\"deck.shuffle()\",\"arguments\":[]},{\"type\":\"functionCall\",\"name\":\"context.board.remove(target)\",\"arguments\":[]}]}]"
+  }
+]
